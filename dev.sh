@@ -1,0 +1,1 @@
+npx concurrently "npm --prefix ./front-end start" "npm --prefix ./back-end start"

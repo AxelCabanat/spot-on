@@ -1,0 +1,101 @@
+@import "./assets/studio.css";
+@import "./assets/homeStudio.css";
+@import "./assets/community.css";
+@import "./assets/home.css";
+@import "./assets/dashBoardStudio.css";
+@import "./assets/video.css";
+@import "./assets/modal.css";
+@import "./assets/homepage.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font-family: 'Montserrat', sans-serif; */
+
+@layer base {
+	@font-face {
+		font-family: "brandon-grotesque-black";
+		src: url("./assets/font/brandon-grotesque-black.woff") format("woff");
+	}
+
+	@font-face {
+		font-family: "brandon-grotesque-bold-italic";
+		src: url("./assets/font/brandon-grotesque-bold-italic.woff") format("woff");
+	}
+	@font-face {
+		font-family: "brandon-grotesque-light-italic";
+		src: url("./assets/font/brandon-grotesque-light-italic.woff") format("woff");
+	}
+	@font-face {
+		font-family: "brandon-grotesque-light";
+		src: url("./assets/font/brandon-grotesque-light.woff") format("woff");
+	}
+	@font-face {
+		font-family: "brandon-grotesque-medium-italic";
+		src: url("./assets/font/brandon-grotesque-medium-italic.woff")
+			format("woff");
+	}
+	@font-face {
+		font-family: "brandon-grotesque-regular-italic";
+		src: url("./assets/font/brandon-grotesque-regular-italic.woff")
+			format("woff");
+	}
+
+	@font-face {
+		font-family: "brandon-grotesque-regular";
+		src: url("./assets/font/brandon-grotesque-regular.woff") format("woff");
+	}
+
+	@font-face {
+		font-family: "brandon-grotesque-bold";
+		src: url("./assets/font/brandon-grotesque-bold.woff") format("woff");
+	}
+
+	body {
+		font-family: brandon-grotesque-regular;
+	}
+
+	h1 {
+		@apply text-8xl;
+	}
+
+	h2 {
+		@apply text-3xl;
+	}
+
+	p {
+		@apply text-base;
+	}
+
+	input,
+	select {
+		@apply text-black bg-white py-2;
+	}
+
+	.button-general {
+		@apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-lg font-['brandon-grotesque-bold'] rounded-md text-white bg-[#392DD9] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+	}
+
+	.logo-round {
+		@apply inline-block h-24 w-24 rounded-full shadow-2xl border-2 border-solid border-white mx-auto;
+	}
+	input::placeholder {
+		@apply text-black;
+	}
+}
+
+.marg {
+	margin-top: 24px;
+}
+
+input[type=radio] {
+	border: 3px solid #333333;
+	padding: 0.5em;
+	-webkit-appearance: none;
+}
+
+input[type=radio]:checked {
+	background: #ffbe00 no-repeat center center;
+	background-size: 9px 9px;
+}

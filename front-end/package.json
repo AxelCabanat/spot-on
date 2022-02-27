@@ -1,0 +1,37 @@
+{
+	"name": "wcs-react-express-front-end",
+	"description": "REACT + vite starter project",
+	"version": "0.0.0",
+	"author": "WCS",
+	"license": "ISC",
+	"main": "vite.config.js",
+	"scripts": {
+		"start": "vite",
+		"build": "vite build",
+		"serve": "vite preview"
+	},
+	"dependencies": {
+		"@heroicons/react": "^1.0.5",
+		"@hookform/error-message": "^2.0.0",
+		"3d-react-carousal": "^4.0.2",
+		"axios": "^0.24.0",
+		"react": "^17.0.0",
+		"react-dom": "^17.0.0",
+		"react-hook-form": "^7.22.1",
+		"react-jitsi": "^1.0.4",
+		"react-player": "^2.9.0",
+		"react-router-dom": "^6.1.1",
+		"react-toastify": "^8.1.0",
+		"react-stacked-center-carousel": "^1.0.5"
+	},
+	"devDependencies": {
+		"@types/react": "^17.0.37",
+		"@vitejs/plugin-react": "^1.0.0",
+		"autoprefixer": "^10.4.0",
+		"faker": "^5.5.3",
+		"postcss": "^8.4.5",
+		"tailwindcss": "^3.0.7",
+		"vite": "^2.6.4",
+		"vite-plugin-compression": "^0.4.0"
+	}
+}

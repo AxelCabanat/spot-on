@@ -1,0 +1,67 @@
+PUT http://localhost:3001/studios/update/5
+Content-type: application/json
+
+{
+  "background":"gfdgd",
+  "color_primary":"gfdgdf",
+  "color_secondary":"fdgdfgdf",
+  "typo":"gfdg",
+  "main_title":"gfdgf",
+  "main_description":"gfgfd",
+  "title1":"gff",
+  "description1":"gfdgfd",
+  "url1":"gfdgdf",
+  "title2":"gfd",
+  "description2":"gfgdf",
+  "url2":"ggrggd",
+  "title3":"gfgdgf",
+  "description3":"gdfgfdg",
+  "url3":"gfgdx"
+
+}
+
+
+###########
+POST  http://localhost:3001/studios/
+Content-Type: application/json
+
+{
+    "name": "AwsomeStudio", 
+    "username": "test"
+}
+
+###########
+POST  http://localhost:3001/studios/register
+Content-Type: application/json
+
+{
+    "username": "test", 
+    "email": "coucou@mail.co",
+    "password": "rootroot"
+}
+
+###################
+
+GET  http://localhost:3001/studios/xeno
+Content-Type: application/json
+
+##################
+
+POST http://localhost:3001/users/login
+Content-Type: application/json
+
+{
+    "username": "Arnaud",
+    "clearPassword" : "rootroot"
+}
+
+
+##################
+
+PUT http://localhost:3001/studios/1/live
+Content-Type: application/json
+
+{
+    "is_on_stream": true,
+    "stream_url" : "rootroot"
+}

@@ -1,0 +1,76 @@
+POST http://localhost:3001/surveys
+Content-Type: application/json
+
+{
+    "name": "Questionnaire 1"
+}
+
+##################
+
+GET  http://localhost:3001/surveys/5
+Content-Type: application/json
+
+#######################
+
+GET  http://localhost:3001/surveys
+Content-Type: application/json
+
+#######################
+
+POST http://localhost:3001/surveys/1/questions
+Content-Type: application/json
+
+{
+    "content": "test test",
+    "type": 0
+}
+
+#######################
+
+POST http://localhost:3001/surveys/1/questions/1
+Content-Type: application/json
+
+{
+    "content": "Choix 1"
+}
+#######################
+
+POST http://localhost:3001/surveys/users
+Content-Type: application/json
+
+{
+    "societe": "tets", 
+    "firstName": "axel", 
+    "lastName": "test",
+    "email": "a.test@mail.fr"
+}
+#######################
+
+GET http://localhost:3001/surveys/users/Monsieur
+Content-Type: application/json
+
+
+#######################
+
+POST http://localhost:3001/surveys/users/lolilol
+Content-Type: application/json
+
+{
+    "surveyQuestionChoiceId": 17,
+    "other": "dev wev"
+}
+
+#######################
+
+GET http://localhost:3001/surveys/user/answers
+Content-Type: application/json
+
+#######################
+
+GET http://localhost:3001/surveys/answers/14
+Content-Type: application/json
+
+#######################
+
+GET http://localhost:3001/surveys/user/recontact
+Content-Type: application/json

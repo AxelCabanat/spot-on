@@ -1,0 +1,66 @@
+/*
+* HomePage Studio
+*/
+
+@layer components {
+  .studioHome {
+    @apply w-full flex flex-col m-auto;
+  }
+
+  .studioHome .studioHome {
+    @apply w-full flex flex-col m-auto;
+  }
+
+  .homeStudio {
+    @apply flex flex-col lg:flex-row justify-center items-center;
+  }
+  .home-reverse {
+    @apply flex-col lg:flex-row-reverse;
+  }
+  .homeStudio img {
+    @apply w-full lg:w-1/4;
+  }
+  .homeStudio-text {
+    @apply w-full lg:w-3/4 lg:ml-4;
+  }
+  .homeStudio-text p {
+    @apply w-3/4 m-auto;
+  }
+
+  .homeStudio-text .home-config-normal p {
+    @apply w-[49%] m-auto lg:leading-10 leading-8;
+  }
+
+  .homeStudio-text h2 {
+    @apply w-3/4 m-auto mb-2;
+  }
+
+  .homeStudio-text-nomarge {
+    @apply w-3/4 mb-2;
+  }
+
+  section > h2 {
+    @apply underline mt-10 mb-5 text-2xl;
+  }
+
+  .home-config::placeholder {
+    @apply text-2xl;
+  }
+
+  .home-config-previsualize {
+    @apply border-dotted border-2 border-indigo-600 text-white text-left  w-full lg:w-9/12 ml-auto mr-auto bg-transparent block mt-2 lg:mt-0;
+  }
+  .home-config-normal {
+    @apply text-white text-left  w-9/12 ml-auto mr-auto bg-transparent;
+  }
+  .main-title {
+    @apply text-xl lg:text-8xl w-9/12 text-center;
+  }
+  .shadow-bloc {
+    box-shadow: 0px 50px 40px -2px rgba(0, 0, 0, 0.65);
+  }
+
+  .white-svg {
+    filter: invert(1);
+  }
+}

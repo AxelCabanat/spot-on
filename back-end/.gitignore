@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+
+# Builds
+build
+
+# Configuration files
+.env
+
+# Logs
+logs
+*.log
+*.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS X specifics files
+.DS_Store*
+Icon?
+._*
+
+# Windows specifics files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux specifics files
+.directory
+*~
+
+
+# Ignoring files in uploads folder
+uploads/*
+uploads/videos/*
+uploads/miniatures/*
+uploads/avatar/*
+
+# But keep the uploads folder itself
+!uploads/.gitkeep
+!uploads/videos/
+!uploads/videos/.gitkeep
+!uploads/miniatures/
+!uploads/miniatures/.gitkeep
+!uploads/avatar/
+!uploads/avatar/.gitkeep

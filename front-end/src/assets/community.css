@@ -1,0 +1,30 @@
+/*
+* Page Communaute
+*/
+@layer components {
+  .add_new h2 {
+    @apply text-xl mt-20;
+  }
+  .container_friends,
+  .container_badges,
+  .container_seance_planified {
+    @apply flex flex-wrap w-full justify-around;
+  }
+  .add_new,
+  .badges {
+    @apply border-2 w-1/5 h-52 flex justify-center items-center my-10;
+  }
+
+  /* Tableau */
+  .header_array {
+    @apply border font-bold text-center;
+  }
+
+  .header_array_col {
+    @apply border font-bold;
+  }
+
+  .border {
+    @apply border-white border-2 border-solid p-5;
+  }
+}

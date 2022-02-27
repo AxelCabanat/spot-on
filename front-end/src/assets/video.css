@@ -1,0 +1,85 @@
+/*
+* videos Studio
+*/
+
+@layer components {
+  .myvideos {
+    @apply w-full flex flex-col;
+  }
+  .myvideos input {
+    @apply w-60 self-end;
+  }
+  .myvideos h2 {
+    @apply text-xl mt-20;
+  }
+  section > .container_videos > a {
+    @apply m-0 my-10;
+  }
+  .container_videos {
+    @apply flex flex-wrap w-full mx-6 justify-center;
+  }
+  .container_videos > a {
+    @apply m-0 my-10;
+  }
+  .miniature {
+    @apply flex flex-col justify-center items-center px-8 my-10  transition-all cursor-pointer ml-0 w-80;
+  }
+  .miniature:hover {
+    @apply scale-125 transition-all;
+  }
+
+  .miniature > img {
+    @apply w-full;
+  }
+}
+
+/*
+* player video
+*/
+
+@layer components {
+  .player_container {
+    @apply w-full;
+  }
+  .player {
+    @apply w-full p-8 xl:min-h-screen flex xl:flex-row flex-col items-center xl:items-start;
+  }
+  .player_description {
+    @apply p-2 xl:w-1/4 w-full flex flex-col items-center mx-2 font-black;
+  }
+
+  .player_description > h2 {
+    @apply text-sm lg:text-xl;
+  }
+  .logo_studio {
+    @apply w-16 rounded-full;
+  }
+  .player_studio {
+    @apply flex items-center;
+  }
+  .player_studio > p {
+    @apply text-white xl:text-black;
+  }
+  .player_studio > a {
+    @apply flex items-center;
+  }
+  .player_studio > a > span {
+    @apply m-4;
+  }
+  .player_reco {
+    @apply bg-[#e6e6e6] flex flex-col min-h-screen;
+  }
+  .player_reco > h3 {
+    @apply text-2xl;
+  }
+  .player_reco_container {
+    @apply flex flex-col md:flex-row items-center flex-wrap py-6 lg:px-20 pr-8 lg:m-0;
+  }
+  .player_reco_container > .miniature {
+    @apply px-0 w-full h-40 lg:h-auto md:w-1/4 m-4 flex flex-col justify-between items-start;
+  }
+
+  .player_reco_container > .miniature > h3 {
+    @apply text-xl ml-2;
+  }
+}

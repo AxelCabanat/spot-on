@@ -1,0 +1,201 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id        Int     @id @default(autoincrement())
+  id_studio Int?
+  label     String? @db.VarChar(255)
+  studio    studio? @relation(fields: [id_studio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "categories_ibfk_1")
+
+  @@index([id_studio], map: "id_studio")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model friend {
+  id      Int
+  user_id Int?
+  users   users? @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "friend_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+  @@ignore
+}
+
+model planning {
+  id          Int    @id @default(autoincrement())
+  date        String @db.VarChar(255)
+  title       String @db.VarChar(255)
+  duration    Int
+  description String @db.Text
+  link        String @db.Text
+  id_studio   Int
+  studio      studio @relation(fields: [id_studio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "planning_ibfk_1")
+
+  @@index([id_studio], map: "id_studio")
+}
+
+model playlist {
+  id        Int    @id @default(autoincrement())
+  user_id   Int
+  studio_id Int
+  studio    studio @relation(fields: [studio_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "playlist_ibfk_2")
+  users     users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "playlist_ibfk_1")
+
+  @@index([studio_id], map: "studio_id")
+  @@index([user_id], map: "user_id")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model playlist_videos {
+  vod_id      Int
+  playlist_id Int
+  videos      videos @relation(fields: [vod_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "playlist_videos_ibfk_1")
+
+  @@index([vod_id], map: "vod_id")
+  @@ignore
+}
+
+model studio {
+  id                   Int            @id @default(autoincrement())
+  logo                 String?        @db.Text
+  name                 String         @unique @db.VarChar(255)
+  background           String?        @db.VarChar(255)
+  background2          String?        @db.VarChar(255)
+  background_secondary String?        @db.VarChar(255)
+  banner               String?        @db.VarChar(255)
+  color_primary        String?        @db.VarChar(255)
+  color_secondary      String?        @db.VarChar(255)
+  typo                 String?        @db.VarChar(255)
+  main_title           String?        @db.Text
+  main_description     String?        @db.Text
+  title1               String?        @db.Text
+  description1         String?        @db.Text
+  url1                 String?        @db.Text
+  title2               String?        @db.Text
+  description2         String?        @db.Text
+  url2                 String?        @db.Text
+  title3               String?        @db.Text
+  description3         String?        @db.Text
+  url3                 String?        @db.Text
+  title4               String?        @db.Text
+  description4         String?        @db.Text
+  url4                 String?        @db.Text
+  title5               String?        @db.Text
+  description5         String?        @db.Text
+  url5                 String?        @db.Text
+  is_on_stream         Boolean?
+  stream_url           String?        @db.Text
+  username             String
+  admin                users?         @relation(fields: [username], references: [username], onDelete: NoAction, onUpdate: NoAction)
+  categories           categories[]
+  planning             planning[]
+  playlist             playlist[]
+  user_studios         user_studios[] @ignore
+  videos               videos[]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model user_planning {
+  user_id     Int
+  planning_id Int
+  users       users @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_planning_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model user_studios {
+  user_id   Int
+  studio_id Int
+  studio    studio @relation(fields: [studio_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_studios_ibfk_1")
+
+  @@index([studio_id], map: "studio_id")
+  @@ignore
+}
+
+model users {
+  id            Int             @id @default(autoincrement())
+  username      String          @unique @db.VarChar(255)
+  email         String          @unique @db.VarChar(255)
+  password      String          @db.VarChar(255)
+  role          Int             @default(2)
+  created_at    DateTime        @default(now())
+  avatar        String?         @db.Text
+  firstname     String?         @db.VarChar(50)
+  lastname      String?         @db.VarChar(50)
+  adresse       String?         @db.VarChar(255)
+  postal_code   String?         @db.VarChar(255)
+  city          String?         @db.VarChar(255)
+  country       String?         @db.VarChar(255)
+  phone         Int?
+  admin         studio[]
+  friend        friend[]        @ignore
+  playlist      playlist[]
+  user_planning user_planning[] @ignore
+}
+
+model videos {
+  id              Int               @id @default(autoincrement())
+  created_at      DateTime          @default(now())
+  id_studio       Int
+  category_id     Int?
+  title           String            @db.VarChar(255)
+  url_miniature   String            @db.Text
+  url_video       String            @db.Text
+  studio          studio            @relation(fields: [id_studio], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "videos_ibfk_1")
+  playlist_videos playlist_videos[] @ignore
+
+  @@index([id_studio], map: "id_studio")
+}
+
+model survey {
+  id        Int               @id @default(autoincrement())
+  name      String            @unique @db.VarChar(255)
+  questions survey_question[]
+}
+
+model survey_question {
+  id        Int                      @id @default(autoincrement())
+  content   String                   @db.Text
+  type      Int
+  surveyId  Int
+  survey    survey                   @relation(fields: [surveyId], references: [id])
+  responses survey_question_choice[]
+
+  @@index([surveyId], map: "survey_question_surveyId_fkey")
+}
+
+model survey_question_choice {
+  id         Int                  @id @default(autoincrement())
+  content    String               @db.Text
+  questionId Int
+  question   survey_question      @relation(fields: [questionId], references: [id])
+  answers    survey_user_answer[]
+
+  @@index([questionId], map: "survey_question_choice_questionId_fkey")
+}
+
+model survey_user {
+  id        Int                  @id @default(autoincrement())
+  societe   String               @unique @db.VarChar(255)
+  firstName String               @db.VarChar(255)
+  lastName  String               @db.VarChar(255)
+  email     String               @unique @db.VarChar(255)
+  recontact Boolean?
+  answers   survey_user_answer[]
+}
+
+model survey_user_answer {
+  id                     Int                    @id @default(autoincrement())
+  surveyQuestionChoiceId Int
+  userSociete            String
+  Other                  String?                @db.VarChar(255)
+  choice                 survey_question_choice @relation(fields: [surveyQuestionChoiceId], references: [id])
+  user                   survey_user            @relation(fields: [userSociete], references: [societe])
+}
